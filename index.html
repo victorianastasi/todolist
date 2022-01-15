@@ -26,33 +26,33 @@
     <!-- JQUERY -->
     <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script defer src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script defer src="./index.js"></script>
+    <script defer src="./js/index.js"></script>
     <!-- CSS-->
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-    <header>
-        <div class="header" id="header">
-            <div id="header-text">
-                <h1 class="title">Lista de Tareas</h1>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    </head>
+    <body>
+        <header>
+            <div class="header" id="header">
+                <div id="header-text">
+                    <h1 class="title">Lista de Tareas</h1>
+                </div>
             </div>
-        </div>
-    </header>
-    
-    <main>
-        <div class="add-task input-group ">
-            <input type="text" id="input-text" class="form-control">
-            <button id="btn-add" class="btn btn-add"><i class="fas fa-plus"></i></button>
-        </div>
-        <div class="delete-box" id="delete-all">
-            <p class=" btn btn-dark"><i class="fas fa-times-circle search-icon"></i> Borrar todo </p>
-        </div>
-        <div id="tasks"></div>
-        <div class="no-tasks" id="no-tasks">Tu lista de tareas esta vacia</div>
-    </main>
+        </header>
+        
+        <main>
+            <div class="add-task input-group ">
+                <input type="text" id="input-text" class="form-control input-add" placeholder="Escribe tu tarea..">
+                <button id="btn-add" class="btn btn-add"><i class="fas fa-plus"></i></button>
+            </div>
+            <div class="delete-box" id="delete-all">
+                <p class=" btn btn-dark"><i class="fas fa-times-circle search-icon"></i> Borrar todo </p>
+            </div>
+            <div id="tasks" class="tasks"></div>
+            <div class="no-tasks animate__animated animate__zoomIn animate__fast" id="no-tasks">Tu lista de tareas esta vacia</div>
 
-    <button id="btnTop" class="btn btnTop"><i class="fas fa-chevron-up btnTop-icon animate__animated animate__fadeInUp animate__infinite infinite"></i></button>
+            <div id="notification" class="notification"></div>
+        </main>
 
-
-</body>
+        <button id="btnTop" class="btn btnTop"><i class="fas fa-chevron-up btnTop-icon animate__animated animate__fadeInUp animate__infinite infinite"></i></button>
+    </body>
 </html>

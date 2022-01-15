@@ -5,7 +5,8 @@ body{
     font-size: 1rem;
     position: relative;
     scroll-behavior: smooth;
-    background-color: rgb(39, 40, 46);
+    background: linear-gradient(to bottom, rgb(63, 65, 75), rgb(63, 65, 75) 3px, rgb(39, 40, 46) 3px, rgb(39, 40, 46) 15px);
+    background-size: 100% 50px;
     color: rgb(250, 250, 250);
 }
 .title{
@@ -15,28 +16,28 @@ body{
     font-weight: 600;
 }
 .btnTop{
-    color: white;
+    color: rgb(31, 31, 36);
     position: fixed;
     bottom: 10px;
     right: 10px;
     display: none;
     padding: 0.75rem 1rem;
-    background-color: rgba(31, 31, 36, 0.7);
+    background-color: rgba(240, 240, 250, 0.8);
     border-radius: 50%;
 }
 .btnTop-icon{
-    color: white;
+    color: rgb(31, 31, 36);
     font-size: 1.2rem;
 }
 .btnTop:hover{
-    background-color: rgb(31, 31, 36);
+    background-color: rgb(240, 240, 250);
 }
 .btnTop:visited{
-    background-color: rgba(31, 31, 36, 0.7);
+    background-color: rgba(240, 240, 250, 0.8);
 }
 header{
     color: rgb(31, 31, 36);
-    background-color: rgb(240, 240, 250);
+    background-color: rgba(240, 240, 250, 0.9);
 }
 main{
     width: 95%;
@@ -63,30 +64,43 @@ main{
 .btn-add{
     background-color: rgb(171, 171, 236);
 }
+.input-add:focus-visible{
+    outline:rgb(171, 171, 236) auto 2px;
+}
+.tasks{
+    margin-bottom: 6rem;
+}
 .task-item{
-    color: rgb(31, 31, 36);
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
     align-items: center;
-    margin: 1rem 0;
+    margin: 1.5rem 0;
     padding: 1rem 0.5rem;
-    background-color: rgb(240, 240, 250);
+    background-color: rgba(240, 240, 255, 0.15);
     border-radius: 5px;
-    box-shadow: 3px 3px 3px rgb(5, 5, 5);
+    box-shadow: 0px 0px 5px rgb(5, 5, 5);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    font-family: 'Lato', sans-serif;
 }
 .task-item-text{
-    flex-basis: 80%;
+    flex-basis: 70%;
     padding: 0 0.5rem;
 }
 .task-item-text p{
     margin-bottom: 0;
+}
+.task-item-text-date{
+    font-size: 0.7rem;
+    color: rgb(124, 133, 141);
 }
 .task-complete{
     display: none;
     font-size: 0.9rem;
     margin-top: 0.25rem;
     text-align: center;
+    font-family:  'Josefin Sans', sans-serif;
     color: rgba(31, 31, 36, 0.9);
     background-color: rgb(216, 250, 239);
     border-radius: 3px;
@@ -102,15 +116,53 @@ main{
     background-color: rgb(137, 206, 183);
 }
 .task-item-delete-icon{
-    background-color: rgb(247,135,138); 
+    color: rgb(247,135,138); 
+    font-size: 1.3rem;
+}
+.task-item-priority-icon{
+    color: rgb(224, 215, 77);
+    font-size: 1.3rem;
 }
 .no-tasks{
+    display: none;
     width: 70%;
     text-align: center;
     margin: 6rem auto;
-    padding: 5rem 0;
-    background-color: rgb(238,253,149);
+    padding: 5rem 3rem;
+    background-color: rgba(255,246,155, 0.9);
     color: rgb(31, 31, 36);
+}
+.notification{
+    display: none;
+    margin: 0;
+    width: 100%;
+    height: 90px;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+.notification-text{
+    margin: 0 auto;
+    padding: 2rem 0;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.notification-delete-all{
+    color: rgb(240, 209, 174);
+}
+.notification-delete-item{
+    color: rgb(250, 190, 192);
+}
+.notification-complete-item{
+    color: rgb(216, 250, 239);
+    padding: 1rem 4rem;
+}
+.notification-priority-item{
+    color: rgb(255,246,155);
 }
 .show{
     display: block;
@@ -119,14 +171,13 @@ main{
     display: none;
 }
 @media screen and (min-width: 992px){
-    main{
+    main, .notification p{
         width: 40%;
     }
     .add-task{
         width: 70%;
     }
     .no-tasks{
-        width: 50%;
-        padding: 7rem 0;
+        width: 70%;
     }
 }
