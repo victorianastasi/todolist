@@ -9,7 +9,7 @@ window.addEventListener('load', function() {
 
     function scrollFunction() {
         if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
-            btnTop.style.display = "block";
+            btnTop.style.display = "inline-block";
         } else {
             btnTop.style.display = "none";
         }
@@ -266,6 +266,7 @@ window.addEventListener('load', function() {
             localStorage.setItem("list", JSON.stringify(list));
             
             document.getElementById("input-text").value = "";
+            document.getElementById("input-text").blur();
             showTasks();
 
         }
@@ -273,8 +274,8 @@ window.addEventListener('load', function() {
 
     document.getElementById("input-text").addEventListener("keyup", function(event) {
         if (event.key === "Enter") {
-         event.preventDefault();
-         document.getElementById("btn-add").click();
+            event.preventDefault();
+            document.getElementById("btn-add").click();
         }
     });
 

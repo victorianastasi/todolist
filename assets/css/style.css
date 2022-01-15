@@ -15,15 +15,21 @@ body{
     padding: 3rem 0;
     font-weight: 600;
 }
+.btnTop-box{
+    z-index: 10;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    display: block;
+    text-align: right;
+}
 .btnTop{
     color: rgb(31, 31, 36);
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    display: none;
     padding: 0.75rem 1rem;
     background-color: rgba(240, 240, 250, 0.8);
     border-radius: 50%;
+    margin: 2rem 10px 10px 0;
 }
 .btnTop-icon{
     color: rgb(31, 31, 36);
