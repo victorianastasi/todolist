@@ -266,7 +266,6 @@ window.addEventListener('load', function() {
             localStorage.setItem("list", JSON.stringify(list));
             
             document.getElementById("input-text").value = "";
-            document.getElementById("input-text").focus();
             showTasks();
 
         }
@@ -309,7 +308,5 @@ window.addEventListener('load', function() {
         });
     });
 
-    
-    
 
 });
