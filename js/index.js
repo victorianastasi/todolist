@@ -22,8 +22,6 @@ window.addEventListener('load', function() {
     let list = [];
     let listComplete = [];
 
-    document.getElementById("input-text").focus();
-
     let notificationText = document.getElementById("notification");
 
     const notification = (text) => {
@@ -72,7 +70,7 @@ window.addEventListener('load', function() {
                         }
                     });
 
-                    document.getElementById(`task-item-${i}`).style.padding = " 1rem 0.5rem";
+                    document.getElementById(`task-item-${i}`).style.padding = " 1.5rem 0.5rem";
                     document.getElementById(`item-complete-${i}`).style.backgroundColor = "rgb(137, 206, 183)";
                     document.getElementById(`item-complete-${i}`).style.color = "rgb(255, 255, 255)";
                     document.getElementById(`task-complete-${i}`).style.display = "none";
@@ -197,11 +195,11 @@ window.addEventListener('load', function() {
 
             for(let i = 0; i < list.length; i++){
                 if(list[i].priority == 0){
-                    document.getElementById(`task-item-${i}`).style.backgroundColor = "rgba(240, 240, 255, 0.15)";
+                    document.getElementById(`task-item-${i}`).style.backgroundColor = "rgba(240, 240, 255, 0.1)";
                     document.getElementById(`task-item-text-date-${i}`).style.color = "rgb(124, 133, 141)";
                 }else{
                     document.getElementById(`task-item-${i}`).style.backgroundColor = "rgba(240, 240, 255, 0.3)";
-                    document.getElementById(`task-item-text-date-${i}`).style.color = "rgb(42, 45, 48)";
+                    document.getElementById(`task-item-text-date-${i}`).style.color = "rgb(31, 31, 36)";
                 }
 
                 if(list[i].status == "complete"){
@@ -210,7 +208,7 @@ window.addEventListener('load', function() {
                     document.getElementById(`item-complete-${i}`).style.color = "rgb(255, 255, 255)";
                     document.getElementById(`task-complete-${i}`).style.display = "block";
                 }else{
-                    document.getElementById(`task-item-${i}`).style.padding = " 1rem 0.5rem";
+                    document.getElementById(`task-item-${i}`).style.padding = " 1.5rem 0.5rem";
                     document.getElementById(`item-complete-${i}`).style.backgroundColor = "rgb(137, 206, 183)";
                     document.getElementById(`item-complete-${i}`).style.color = "rgb(255, 255, 255)";
                     document.getElementById(`task-complete-${i}`).style.display = "none";
@@ -253,9 +251,16 @@ window.addEventListener('load', function() {
             }
 
             let number = create_UUID();
-            let date =  new Date().
-            toLocaleString('en-us', {day: '2-digit', month: '2-digit', year: 'numeric'}).
-            replace(/(\d+)\/(\d+)\/(\d+)/, '$2-$1-$3');
+            
+            function pad(n) {
+                return n < 10 ? '0' + n : n;
+            }
+            let currentDate = new Date();
+            let currentDayOfMonth = currentDate.getDate();
+            let currentMonth = currentDate.getMonth();
+            let currentYear = currentDate.getFullYear();
+
+            let date = `${pad(currentDayOfMonth)}/${pad(currentMonth + 1)}/${currentYear}`;
 
             list.push({"task": document.getElementById("input-text").value, "id": number, "priority": 0, "status": "incomplete", "date": date});
             localStorage.setItem("list", JSON.stringify(list));
@@ -296,7 +301,6 @@ window.addEventListener('load', function() {
 
                 let deleteAllText = `<p class="notification-text notification-delete-all"><i class="far fa-calendar-check"></i> Listo! No tienes tareas </p>`;
                 notification(deleteAllText);
-                document.getElementById("input-text").focus();
                 break;
            
               case "cancel":
