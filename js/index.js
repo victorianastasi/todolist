@@ -77,7 +77,7 @@ window.addEventListener('load', function() {
                     
                 }
                 if(listComplete.length == list.length){
-                    let completeText = `<p class="notification-text notification-complete-item">Felicitaciones! No tienes tareas pendientes <i class="far fa-thumbs-up"></i> </p>`;
+                    let completeText = `<p class="notification-text notification-complete-item">No tienes tareas pendientes <i class="far fa-thumbs-up"></i> </p>`;
                     notification(completeText);
                 };
                 
