@@ -297,6 +297,10 @@ window.addEventListener('load', function() {
                 listComplete = [];
                 localStorage.setItem("list", JSON.stringify(list));
                 localStorage.setItem("listComplete", JSON.stringify(listComplete));
+
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+
                 showTasks();
 
                 let deleteAllText = `<p class="notification-text notification-delete-all"><i class="far fa-calendar-check"></i> Listo! No tienes tareas </p>`;
