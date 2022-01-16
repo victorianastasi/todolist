@@ -19,9 +19,10 @@ window.addEventListener('load', function() {
         document.documentElement.scrollTop = 0;
     });
 
+
     let list = [];
     let listComplete = [];
-
+    
     let notificationText = document.getElementById("notification");
 
     const notification = (text) => {
@@ -163,8 +164,9 @@ window.addEventListener('load', function() {
 
 
     const showTasks = () => {
-        if(list.length > 0){
         
+        if(list.length > 0){
+            document.getElementById("no-tasks").style.display = "none";
             let acu = ``;
             for(let i = 0; i < list.length; i++){
                 let star;
@@ -226,6 +228,8 @@ window.addEventListener('load', function() {
             document.getElementById("no-tasks").style.display = "block";
         };
     };
+    console.log(list.length)
+    showTasks();
 
     if (localStorage.getItem("list") != null) {
         list = JSON.parse(localStorage.getItem("list"));
@@ -233,12 +237,10 @@ window.addEventListener('load', function() {
         showTasks();
     };
 
-
     document.getElementById("btn-add").addEventListener('click', () => {
         if (document.getElementById("input-text").value == ""){
             swal("Oops...", "Escribe tu tarea", "warning");
         }else{
-            document.getElementById("no-tasks").style.display = "none";
 
             function create_UUID(){
                 var dt = new Date().getTime();
