@@ -8,8 +8,8 @@ window.addEventListener('load', function() {
     };
 
     function scrollFunction() {
-        if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
-            btnTop.style.display = "inline-block";
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+            btnTop.style.display = "block";
         } else {
             btnTop.style.display = "none";
         }
@@ -23,22 +23,15 @@ window.addEventListener('load', function() {
     let list = [];
     let listComplete = [];
     
-    let notificationText = document.getElementById("notification");
-
-    const notification = (text) => {
-        notificationText.innerHTML = `${text}`; 
-        notificationText.classList.add("show");
-        notificationText.animate([{transform: 'translateY(-120px)'}, {transform: 'translateY(0px)'}], 
-        {duration: 300});
-        setTimeout(function(){
-            notificationText.animate([{transform: 'translateY(0px)'}, {transform: 'translateY(-120px)'}], 
-            {duration: 300});
-        }, 1800);
-        setTimeout(function(){
-            notificationText.classList.remove("show");
-        }, 2100); 
-    };
     
+    function notificationAnimation () {
+        document.getElementById("notification").classList.add("animation-in");
+        setTimeout(function(){
+            document.getElementById("notification").classList.remove("animation-in");
+            document.getElementById("notification").classList.add("animation-out");
+        }, 2000);
+        document.getElementById("notification").classList.remove("animation-out");
+    }
     
     const completeTask = () => {
         for(let i = 0; i < list.length; i++){
@@ -78,8 +71,10 @@ window.addEventListener('load', function() {
                     
                 }
                 if(listComplete.length == list.length){
-                    let completeText = `<p class="notification-text notification-complete-item">No tienes tareas pendientes <i class="far fa-thumbs-up"></i> </p>`;
-                    notification(completeText);
+                    let completeText = `
+                    <p class="notification-text notification-complete-item">No tienes tareas pendientes <i class="far fa-thumbs-up"></i> </p>`;
+                    $("#notification").html(completeText);
+                    notificationAnimation();
                 };
                 
                 showTasks();
@@ -118,8 +113,10 @@ window.addEventListener('load', function() {
                             localStorage.setItem("list", JSON.stringify(list));
                             showTasks();
                             
-                            let deleteItemText = `<p class="notification-text notification-delete-item"><i class="far fa-calendar-check"></i> Tarea eliminada </p>`;
-                            notification(deleteItemText);
+                            let deleteItemText = `
+                            <p class="notification-text notification-delete-item"><i class="far fa-calendar-check"></i> Tarea eliminada </p>`;
+                            $("#notification").html(deleteItemText);
+                            notificationAnimation();
                             break;
                     
                         case "cancel":
@@ -145,8 +142,10 @@ window.addEventListener('load', function() {
 
                     localStorage.setItem("list", JSON.stringify(list));
 
-                    let priorityText = `<p class="notification-text notification-priority-item"><i class="fas fa-star"></i> Tarea de alta prioridad </p>`;
-                    notification(priorityText);
+                    let priorityText = `
+                    <p class="notification-text notification-priority-item"><i class="fas fa-star"></i> Tarea de alta prioridad </p>`;
+                    $("#notification").html(priorityText);
+                    notificationAnimation();
                 }else{
                     list[i].priority = 0;
 
@@ -304,8 +303,10 @@ window.addEventListener('load', function() {
 
                 showTasks();
 
-                let deleteAllText = `<p class="notification-text notification-delete-all"><i class="far fa-calendar-check"></i> Listo! No tienes tareas </p>`;
-                notification(deleteAllText);
+                let deleteAllText = `
+                <p class="notification-text notification-delete-all"><i class="far fa-calendar-check"></i> Listo! No tienes tareas </p>`;
+                $("#notification").html(deleteAllText);
+                notificationAnimation();
                 break;
            
               case "cancel":
