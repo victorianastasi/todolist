@@ -2,7 +2,7 @@ window.addEventListener('load', function() {
     console.log('All assets are loaded');
 
     let btnTop = document.getElementById("btnTop");
-
+    
     window.onscroll = function() {
         scrollFunction()
     };
@@ -14,6 +14,7 @@ window.addEventListener('load', function() {
             btnTop.style.display = "none";
         }
     };
+    
     btnTop.addEventListener('click', () => {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
@@ -163,10 +164,10 @@ window.addEventListener('load', function() {
 
 
     const showTasks = () => {
-        
         if(list.length > 0){
             document.getElementById("no-tasks").style.display = "none";
             let acu = ``;
+            let acuComplete = ``;
             for(let i = 0; i < list.length; i++){
                 let star;
                 
@@ -176,24 +177,42 @@ window.addEventListener('load', function() {
                 else{
                     star = `<i class="fas fa-star"></i>`;
                 }
-
-                acu += `
-                <div class="task-item animate__animated animate__flipInX animate__faster" id="task-item-${i}">
-                    <p class="btn task-item-complete-icon" id="item-complete-${i}"><i class="fas fa-check"></i></p>
-                    <div class="task-item-text">
-                        <p>${list[i].task}</p>
-                        <p class="task-item-text-date" id="task-item-text-date-${i}">${list[i].date}</p>
-                        <p class="task-complete" id="task-complete-${i}">Tarea Completa!</p>
+                if(list[i].status == "complete"){
+                    acuComplete += `
+                    <div class="task-item task-item-complete-active animate__animated animate__flipInX animate__faster" id="task-item-${i}">
+                        <p class="btn task-item-complete-icon" id="item-complete-${i}"><i class="fas fa-check"></i></p>
+                        <div class="task-item-text">
+                            <p id="task-item-text-complete-${i}" class="task-item-text-complete">${list[i].task}</p>
+                            <p class="task-item-text-date" id="task-item-text-date-${i}">${list[i].date}</p>
+                            <p class="task-complete" id="task-complete-${i}">Tarea Completa!</p>
+                        </div>
+                        <p class="btn task-item-priority-icon m-0" id="item-priority-${i}">${star}</p>
+                        <p class="btn task-item-delete-icon" id="item-delete-${i}"><i class="fas fa-times-circle"></i></p>
                     </div>
-                    <p class="btn task-item-priority-icon m-0" id="item-priority-${i}">${star}</p>
-                    <p class="btn task-item-delete-icon" id="item-delete-${i}"><i class="fas fa-times-circle"></i></p>
-                </div>
-                `;
+                    `;
+                }else{
+                    acu += `
+                    <div class="task-item animate__animated animate__flipInX animate__faster" id="task-item-${i}">
+                        <p class="btn task-item-complete-icon" id="item-complete-${i}"><i class="fas fa-check"></i></p>
+                        <div class="task-item-text">
+                            <p>${list[i].task}</p>
+                            <p class="task-item-text-date" id="task-item-text-date-${i}">${list[i].date}</p>
+                            <p class="task-complete" id="task-complete-${i}">Tarea Completa!</p>
+                        </div>
+                        <p class="btn task-item-priority-icon m-0" id="item-priority-${i}">${star}</p>
+                        <p class="btn task-item-delete-icon" id="item-delete-${i}"><i class="fas fa-times-circle"></i></p>
+                    </div>
+                    `;
+                }
+               
             }
             document.getElementById("delete-all").classList.add("show");
             document.getElementById("tasks").classList.remove("hide");
+            
+            document.getElementById("task-complete-list").innerHTML = acuComplete;
+            
             document.getElementById("tasks").innerHTML = acu;
-
+            
             for(let i = 0; i < list.length; i++){
                 if(list[i].priority == 0){
                     document.getElementById(`task-item-${i}`).style.backgroundColor = "rgba(240, 240, 255, 0.1)";
@@ -214,6 +233,11 @@ window.addEventListener('load', function() {
                     document.getElementById(`item-complete-${i}`).style.color = "rgb(255, 255, 255)";
                     document.getElementById(`task-complete-${i}`).style.display = "none";
                 }
+                if(listComplete.length == 0){
+                    document.getElementById("complete-title").innerHTML = ``;
+                }else{
+                    document.getElementById("complete-title").innerHTML = `<h5>Tareas Completas</h5>`;
+                }
             };
             completeTask();
 
@@ -225,6 +249,8 @@ window.addEventListener('load', function() {
             document.getElementById("delete-all").classList.remove("show");
             document.getElementById("tasks").classList.add("hide");
             document.getElementById("no-tasks").style.display = "block";
+            document.getElementById("complete-title").innerHTML = ``;
+            document.getElementById("task-complete-list").innerHTML = ``;
         };
     };
     showTasks();

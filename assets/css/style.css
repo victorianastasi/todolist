@@ -24,8 +24,7 @@ header{
     background-color: rgba(240, 240, 250, 0.9);
 }
 main{
-    width: 95%;
-    margin: 0 auto;
+    margin: 0 1rem;
 }
 .delete-box{
     display: none;
@@ -108,6 +107,17 @@ main{
     color: rgb(224, 215, 77);
     font-size: 1.3rem;
 }
+.task-item-text-complete{
+    position: relative;
+    text-decoration-line: line-through;
+    text-decoration-color: rgb(216, 250, 239);
+}
+.task-complete-list{
+    margin: 1.5rem 0 5rem 0;
+}
+.task-complete-list-box{
+    display: none;
+}
 .no-tasks{
     display: none;
     width: 70%;
@@ -127,6 +137,7 @@ main{
     padding: 0.75rem 1rem;
     background-color: rgba(240, 240, 250, 0.8);
     border-radius: 50%;
+    border: none;
 }
 .btnTop-icon{
     color: var(--primary-color);
@@ -137,8 +148,7 @@ main{
 }
 .notification{
     width: 100%;
-    margin-top: 0rem;
-    margin-left: 0rem;
+    z-index: -10;
     position: fixed;
     bottom: 0px;
     left: 0;
@@ -153,6 +163,7 @@ main{
     }
 }
 .animation-in{
+    z-index: 10;
     opacity: 1;
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
@@ -167,8 +178,6 @@ main{
     }
 }
 .animation-out{
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
     animation: animation-out 1000ms;
 }
 .notification-text{
@@ -176,7 +185,7 @@ main{
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     border-radius:  0;
-    padding: 1.75rem;
+    padding: 2rem 1rem;
     margin: 0;
     font-weight: 500;
     font-size: 1.1rem;
@@ -208,14 +217,10 @@ main{
 .hide{
     display: none;
 }
-@media screen and (min-width: 576px){
-    .notification{
-        width: 350px;
-    }
-} 
 @media screen and (min-width: 992px){
     main{
         width: 40%;
+        margin: 0 auto;
     }
     .add-task{
         width: 70%;
