@@ -28,10 +28,10 @@ window.addEventListener('load', function() {
     const notification = (text) => {
         notificationText.innerHTML = `${text}`; 
         notificationText.classList.add("show");
-        notificationText.animate([{transform: 'translateY(90px)'}, {transform: 'translateY(0px)'}], 
+        notificationText.animate([{transform: 'translateY(-120px)'}, {transform: 'translateY(0px)'}], 
         {duration: 300});
         setTimeout(function(){
-            notificationText.animate([{transform: 'translateY(0px)'}, {transform: 'translateY(90px)'}], 
+            notificationText.animate([{transform: 'translateY(0px)'}, {transform: 'translateY(-120px)'}], 
             {duration: 300});
         }, 1800);
         setTimeout(function(){
@@ -228,7 +228,6 @@ window.addEventListener('load', function() {
             document.getElementById("no-tasks").style.display = "block";
         };
     };
-    console.log(list.length)
     showTasks();
 
     if (localStorage.getItem("list") != null) {

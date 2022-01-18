@@ -127,7 +127,7 @@ main{
     text-align: right;
 }
 .btnTop{
-    display: none;
+    display: inline-block;
     position: absolute;
     bottom: 0px;
     right: 0px;
@@ -151,21 +151,22 @@ main{
     display: none;
     margin: 0 auto;
     width: 100%;
-    position: absolute;
-    bottom: 0px;
+    position: fixed;
+    top: 0px;
     left: 0px;
     text-align: center;
 }
 .notification-text{
     width: 100%;
+    height: 120px;
     display: block;
     margin: 0 auto;
-    padding: 2rem 0;
+    padding: 3rem 0;
     font-weight: 500;
     font-size: 1.1rem;
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 .notification-delete-all{
     color: rgb(240, 209, 174);
@@ -185,6 +186,11 @@ main{
 .hide{
     display: none;
 }
+@media screen and (min-width: 576px){
+    .notification{
+        width: 350px;
+    }
+} 
 @media screen and (min-width: 992px){
     main{
         width: 40%;
