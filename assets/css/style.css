@@ -153,6 +153,7 @@ main{
     position: fixed;
     bottom: 0px;
     left: 0;
+    right: 0;
     opacity: 0;
 }
 @keyframes animation-in {
@@ -182,7 +183,7 @@ main{
     animation: animation-out 1000ms;
 }
 .notification-text{
-    width: 97%;
+    width: 98%;
     background-color: rgba(0,0,0, 0.6);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
