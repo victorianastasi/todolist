@@ -128,7 +128,7 @@ main{
     color: rgb(31, 31, 36);
 }
 .btnTop{
-    display: none;
+    display: block;
     position: fixed;
     bottom: 10px;
     right: 20px;
@@ -183,7 +183,7 @@ main{
     animation: animation-out 1000ms;
 }
 .notification-text{
-    width: 98%;
+    width: 100%;
     background-color: rgba(0,0,0, 0.6);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);

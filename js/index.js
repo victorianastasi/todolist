@@ -3,18 +3,6 @@ window.addEventListener('load', function() {
 
     let btnTop = document.getElementById("btnTop");
     
-    window.onscroll = function() {
-        scrollFunction()
-    };
-
-    function scrollFunction() {
-        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-            btnTop.style.display = "block";
-        } else {
-            btnTop.style.display = "none";
-        }
-    };
-    
     btnTop.addEventListener('click', () => {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
