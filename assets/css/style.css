@@ -147,7 +147,7 @@ main{
     background-color: rgba(240, 240, 250, 0.8);
 }
 .notification{
-    width: 100%;
+    width: 99%;
     margin: 0 auto;
     z-index: -10;
     position: fixed;
