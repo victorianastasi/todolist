@@ -23,4 +23,4 @@ Proyecto Lista de tareas, desarrollado con Javascript.
 ## Autora
 GitHub: [victorianastasi](https://github.com/victorianastasi)
 
-LinkedIn: [Victoria Nastasi](https://www.linkedin.com/in/victoria-nastasi-a3452910b/)
+LinkedIn: [Victoria Nastasi](https://www.linkedin.com/in/victoria-nastasi-74b007237/)
